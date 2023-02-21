@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import SingleItem from "./SingleItem";
+import SingleItem from "./List";
 import MkdSDK from "../utils/MkdSDK";
 import { useState } from "react";
 import Pagination from "./Pagination";
@@ -65,7 +65,7 @@ const Board = () => {
                   </td>
                   <td class="px-6 text-right  items-center gap-2">
                     <p className="font-thin text-base max-w-[364px]">
-                      <select className="bg-none outline-none border-none">
+                      <select className=" bg-none outline-none border-none">
                         <option>Most Liked </option>
                         <option>Least Liked </option>
                       </select>

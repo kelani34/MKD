@@ -2,7 +2,7 @@ import React from "react";
 import profile from "../images/profile.png";
 import { GlobalContext } from "../globalContext";
 import { useNavigate } from "react-router-dom";
-import Board from "../components/Board";
+import Board from "../components/Table";
 import { HTML5Backend } from "react-dnd-html5-backend";
 import { DndProvider } from "react-dnd";
 import { AuthContext } from "../authContext";
@@ -13,6 +13,17 @@ const AdminDashboardPage = () => {
     dispatch({ type: "LOGOUT", payload: "" });
     // navigate("/admin/login");
   };
+
+  const date = new Date();
+  const formattedDate = date.toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+  const now = new Date();
+  const hours = now.getHours();
+  const minutes = now.getMinutes();
+  const formattedTime = `${hours}:${minutes < 10 ? "0" : ""}${minutes}`;
 
   return (
     <>
@@ -31,13 +42,13 @@ const AdminDashboardPage = () => {
           <div className="mt-20 text-base font-thin flex justify-between ">
             <p className="text-[40px]">Today's Leaderboard</p>
             <ul className="bg-[#1d1d1d] rounded-[16px] flex gap-3  py-4 px-8 items-center">
-              <li>30 May 2022</li>
+              <li>{formattedDate}</li>
               <div className="bg-pri h-[4px] w-[4px] rounded-full"></div>
               <li className="bg-sec rounded-lg p-1 px-2 text-black">
                 SUBMISSIONS OPEN
               </li>
               <div className="bg-pri h-[4px] w-[4px] rounded-full"></div>
-              <li>11:34</li>
+              <li>{formattedTime}</li>
             </ul>
           </div>
           <DndProvider backend={HTML5Backend}>
