@@ -61,39 +61,47 @@ const SingleItem = ({ item, moveRow, index }) => {
   drag(dragRef);
   return (
     <div ref={dropRef} style={{ opacity }}>
-      <div
-        ref={dragRef}
-        className="flex w-full justify-between p-2 font-[100] font-base border border-[#e5e5e5] rounded-[10px] my-3"
-      >
-        <div className="w-[5%] ">
-          <p>{item.id}</p>
-        </div>
-        <div className="w-[40%] flex gap-3">
-          <div className="w-[20%] ">
-            <img src={item?.photo} alt={item.username} className="rounded-lg" />
-          </div>
-          <p className="text-white">{item.title}</p>
-        </div>
-        <div className="w-[35%] flex gap-4">
-          <div className="rounded-full ">
-            <img
-              src={item?.photo}
-              alt={item.username}
-              className="rounded-full h-[24px] w-[24px]"
-            />
-          </div>
-          <p className="text-sec font-[100]">{item.username}</p>
-        </div>
-        <div className="w-[10%] flex justify-end gap-3 items-center">
-          <p className="text-white">{item.like}</p>
-          <div className="">
-            <img
-              src={arrow}
-              alt="arrow up"
-              className="rounded-full w-[10px] h-[12.5px] object-contain "
-            />
-          </div>
-        </div>
+      <div class="relative overflow-x-auto shadow-md border border-solid rounded-2xl border-[rgba(255,255,255,0.12)] my-6">
+        <table
+          ref={dragRef}
+          class="w-full text-sm text-left text-gray-500 dark:text-gray-400"
+        >
+          <tbody>
+            <tr class="">
+              <td class="px-6 py-4">{item.id}</td>
+              <td class="px-6 py-4">
+                <div className="flex items-center gap-4">
+                  <img
+                    src={item?.photo}
+                    alt={item.username}
+                    className="rounded-lg h-[64px] w-[118px]"
+                  />
+                  <p className="font-thin text-xl max-w-[364px]">
+                    {item.title}
+                  </p>
+                </div>
+              </td>
+              <td class="px-6 py-4">
+                <div className="flex items-center gap-4">
+                  <img
+                    src={item?.photo}
+                    alt={item.username}
+                    className="rounded-full h-[24px] w-[24px]"
+                  />
+                  <p className="font-thin text-base text-[#DBFD51] w-[460px]">
+                    {item.username}
+                  </p>
+                </div>
+              </td>
+              <td class="px-6 py-4 text-right flex items-center gap-2 h-[110px]">
+                <p className="font-thin text-white text-xl max-w-[364px]">
+                  {item.like}
+                </p>
+                <img src={arrow} alt="arrow up" className="rounded-lg" />
+              </td>
+            </tr>
+          </tbody>
+        </table>
       </div>
     </div>
   );

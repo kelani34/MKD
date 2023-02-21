@@ -48,20 +48,34 @@ const Board = () => {
     <DndProvider backend={HTML5Backend}>
       <div className="my-10">
         <div className="mt-10">
-          <div className="flex w-full justify-between">
-            <div className="w-[5%]">
-              <p>#</p>
-            </div>
-            <div className="w-[40%]">
-              <p>Title</p>
-            </div>
-            <div className="w-[35%]">
-              <p>Author</p>
-            </div>
-            <div className="w-[10%] flex justify-end">
-              <p>Most Liked</p>
-            </div>
+          <div class="relative overflow-x-auto">
+            <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+              <tbody>
+                <tr class="">
+                  <td class="px-6 w-[90px] font-thin">#</td>
+                  <td class="px-6">
+                    <div className=" items-center gap-4">
+                      <p className="font-thin text-base w-[444px]">Title</p>
+                    </div>
+                  </td>
+                  <td class="px-6">
+                    <div className=" items-center gap-4">
+                      <p className="font-thin text-base w-[360px]">Author</p>
+                    </div>
+                  </td>
+                  <td class="px-6 text-right  items-center gap-2">
+                    <p className="font-thin text-base max-w-[364px]">
+                      <select className="bg-none outline-none border-none">
+                        <option>Most Liked </option>
+                        <option>Least Liked </option>
+                      </select>
+                    </p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
+
           <div>
             {data.map((item, index) => (
               <SingleItem

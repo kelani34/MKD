@@ -52,7 +52,7 @@ const AdminLoginPage = () => {
         },
       });
       dispatch({ type: "SNACKBAR", payload: { message: "Logged in" } });
-      // showToast(global.dispatch, "Logged in successfully!");
+      // showToast(dispatch, "Logged in successfully!");
       navigate(`/${role}/dashboard`);
     } catch (error) {
       if (error.message === "USER_NOT_FOUND") {

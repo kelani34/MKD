@@ -18,7 +18,7 @@ const Pagination = ({ setCurrentPage, currentPage, data }) => {
   return (
     <div className="my-10 flex justify-between pb-20 w-full">
       <button
-        className="border border-pri px-3 py-2 flex items-center gap-2"
+        className="border border-pri px-3 py-2 flex items-center gap-2 font-thin rounded-md hover:bg-[rgba(255,255,255,0.14)]"
         onClick={previousPage}
       >
         <div>
@@ -32,7 +32,7 @@ const Pagination = ({ setCurrentPage, currentPage, data }) => {
       </button>
       {currentPage}
       <button
-        className="border border-pri px-3 py-2 gap-2 flex items-center"
+        className="border border-pri px-3 py-2 gap-2 flex items-center font-thin rounded-md hover:bg-[rgba(255,255,255,0.14)]"
         onClick={nextPage}
       >
         Next
